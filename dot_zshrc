@@ -1,0 +1,6 @@
+# eza alias
+alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
+alias ll="ls --long"
+
+eval "$(starship init zsh)"
+
