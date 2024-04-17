@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = {}
 
-config.color_scheme = 'GruvboxDarkHard'
+config.color_scheme = 'Catppuccin Mocha'
 
 config.font = wezterm.font 'Lilex Nerd Font'
 config.font_size = 15
