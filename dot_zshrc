@@ -2,7 +2,7 @@
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # alias
-alias lg="lazygit"
+alias g="lazygit"
 alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
 alias ll="ls --long"
 
