@@ -1,7 +1,8 @@
 # zsh plugins
 source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
-# eza alias
+# alias
+alias g="lazygit"
 alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
 alias ll="ls --long"
 
