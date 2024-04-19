@@ -5,6 +5,7 @@ source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 alias g="lazygit"
 alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
 alias ll="ls --long"
+alias ..="cd .."
 
 eval "$(starship init zsh)"
 
