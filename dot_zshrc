@@ -1,5 +1,14 @@
 # zsh plugins
-source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+# TODO: test
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+autoload -Uz compinit && compinit
 
 # alias
 alias g="lazygit"
@@ -7,5 +16,15 @@ alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
 alias ll="ls --long"
 alias ..="cd .."
 
-eval "$(starship init zsh)"
+# go bins
+if command -v go >/dev/null 2>&1; then
+    export PATH=$PATH:$(go env GOPATH)/bin
+fi
 
+# direnv hook
+if command -v direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
+
+# starship prompt
+eval "$(starship init zsh)"
