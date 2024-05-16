@@ -1,0 +1,6 @@
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# zendesk/zen
+if command -v zen >/dev/null 2>&1; then
+    source <(zen env shell-exports --zsh)
+fi
