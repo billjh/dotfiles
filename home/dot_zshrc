@@ -31,5 +31,10 @@ if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# [zendesk] kubeconfig
+if [ -f ~/Code/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash ]; then
+  source ~/Code/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash
+fi
+
 # starship prompt
 eval "$(starship init zsh)"
