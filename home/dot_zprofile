@@ -2,7 +2,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 eval "$(rbenv init - --no-rehash zsh)"
 
-# [zendesk] zen
-if command -v zen >/dev/null 2>&1; then
-    source <(zen env shell-exports --zsh)
+# [zendesk] zetup
+if command -v zetup >/dev/null 2>&1; then
+    source <(zetup env shell-exports --zsh)
 fi
