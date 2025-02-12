@@ -4,5 +4,10 @@ eval "$(rbenv init - --no-rehash zsh)"
 
 # [zendesk] zetup
 if command -v zetup >/dev/null 2>&1; then
-    source <(zetup env shell-exports --zsh)
+
+#BEGIN ZETUP
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(zetup env shell-exports --zsh)"
+#END ZETUP
+
 fi
