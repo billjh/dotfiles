@@ -6,16 +6,16 @@ config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("Lilex Nerd Font")
 config.font_size = 15
 
-config.window_background_opacity = 1.0
+config.window_background_opacity = 0.8
 config.macos_window_background_blur = 20
 
 -- config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
-config.enable_scroll_bar = true
+-- config.enable_scroll_bar = true
 config.scrollback_lines = 100000
 
-config.initial_cols = 240
-config.initial_rows = 60
+-- config.initial_cols = 80
+-- config.initial_rows = 24
 
 config.keys = {
 	{
@@ -56,10 +56,18 @@ config.keys = {
 }
 
 wezterm.on("gui-startup", function()
+	local screen = wezterm.gui.screens().active
+	local ratio = 0.7
+	local width, height = screen.width * ratio, screen.height * ratio
 	local tab, pane, window = wezterm.mux.spawn_window({
-		position = { x = 0, y = 200 }
+		position = {
+			x = (screen.width - width) / 2,
+			y = (screen.height - height) / 2,
+			origin = "ActiveScreen",
+		}
 	})
 	-- window:gui_window():maximize()
+	window:gui_window():set_inner_size(width, height)
 end)
 
 return config
