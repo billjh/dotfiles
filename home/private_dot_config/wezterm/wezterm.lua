@@ -35,6 +35,11 @@ config.keys = {
 		action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" },
 	},
 	{
+		key = 't',
+		mods = 'SUPER',
+		action = wezterm.action.SpawnCommandInNewTab { cwd = wezterm.home_dir },
+	},
+	{
 		key = 'LeftArrow',
 		mods = 'SUPER',
 		action = wezterm.action.ActivatePaneDirection 'Left',
