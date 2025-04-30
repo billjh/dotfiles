@@ -3,7 +3,7 @@ local config = {}
 
 config.color_scheme = "Catppuccin Mocha"
 
-config.font = wezterm.font("Lilex Nerd Font")
+config.font = wezterm.font("Lilex Nerd Font Mono")
 config.font_size = 15
 
 config.window_background_opacity = 0.8
