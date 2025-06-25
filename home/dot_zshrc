@@ -39,6 +39,7 @@ fi
 # [zendesk] scooter
 if [ -f ~/Code/zendesk/scooter/scripts/shell/scooter.sh ]; then
   source ~/Code/zendesk/scooter/scripts/shell/scooter.sh
+  export SCOOTER_KUBERNETES_CONTEXT=scooter-apse2
 fi
 
 # starship prompt
