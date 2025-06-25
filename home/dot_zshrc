@@ -36,5 +36,10 @@ if [ -f ~/Code/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash ]; then
   source ~/Code/zendesk/kubectl_config/dotfiles/kubectl_stuff.bash
 fi
 
+# [zendesk] scooter
+if [ -f ~/Code/zendesk/scooter/scripts/shell/scooter.sh ]; then
+  source ~/Code/zendesk/scooter/scripts/shell/scooter.sh
+fi
+
 # starship prompt
 eval "$(starship init zsh)"
