@@ -11,7 +11,7 @@ config.macos_window_background_blur = 20
 
 -- config.hide_tab_bar_if_only_one_tab = true
 -- config.window_decorations = "RESIZE"
--- config.enable_scroll_bar = true
+config.enable_scroll_bar = true
 config.use_fancy_tab_bar = false
 config.scrollback_lines = 100000
 
