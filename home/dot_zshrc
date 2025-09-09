@@ -13,6 +13,9 @@ alias ls="eza --icons --hyperlink --octal-permissions --git-repos --all"
 alias ll="ls --long"
 alias ..="cd .."
 
+# claude code
+export PATH="$HOME/.local/bin:$PATH"
+
 # go bins
 if command -v go >/dev/null 2>&1; then
     export PATH=$PATH:$(go env GOPATH)/bin
