@@ -61,19 +61,25 @@ config.keys = {
 	},
 }
 
-wezterm.on("gui-startup", function()
-	local screen = wezterm.gui.screens().main
-	local ratio = 0.7
-	local width, height = screen.width * ratio, screen.height * ratio
-	local tab, pane, window = wezterm.mux.spawn_window({
-		position = {
-			x = (screen.width - width) / 2,
-			y = (screen.height - height) / 2,
-			origin = "MainScreen",
-		}
-	})
-	-- window:gui_window():maximize()
-	window:gui_window():set_inner_size(width, height)
+-- Centered window at main screen on startup
+-- wezterm.on("gui-startup", function()
+-- 	local screen = wezterm.gui.screens().main
+-- 	local ratio = 0.7
+-- 	local width, height = screen.width * ratio, screen.height * ratio
+-- 	local tab, pane, window = wezterm.mux.spawn_window({
+-- 		position = {
+-- 			x = (screen.width - width) / 2,
+-- 			y = (screen.height - height) / 2,
+-- 			origin = "MainScreen",
+-- 		}
+-- 	})
+-- 	window:gui_window():set_inner_size(width, height)
+-- end)
+
+-- Maximize window on startup
+wezterm.on("gui-startup", function(cmd)
+	local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
 end)
 
 return config
