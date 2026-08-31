@@ -76,6 +76,11 @@ if [ -f ~/Code/zendesk/scooter/scripts/shell/scooter.sh ]; then
   source ~/Code/zendesk/scooter/scripts/shell/scooter.sh
 fi
 
+# [zendesk] logcli
+# >>> logcli-okta shim >>>
+export PATH="/Users/huan.jiang/.logcli-okta/bin:$PATH"
+# <<< logcli-okta shim <<<
+
 # starship prompt
 eval "$(starship init zsh)"
 
