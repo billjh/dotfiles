@@ -11,6 +11,3 @@ eval "$(zetup env shell-exports --zsh)"
 #END ZETUP
 
 fi
-
-# For Claude Code to work with other models
-export NODE_USE_SYSTEM_CA=1
