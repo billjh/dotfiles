@@ -78,6 +78,9 @@ fi
 export PATH="/Users/huan.jiang/.logcli-okta/bin:$PATH"
 # <<< logcli-okta shim <<<
 
+# opencode
+export PATH=/Users/huan.jiang/.opencode/bin:$PATH
+
 # starship prompt
 eval "$(starship init zsh)"
 
