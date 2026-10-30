@@ -1,0 +1,14 @@
+[user]
+	email = 4230979+billjh@users.noreply.github.com
+	name = Huan Jiang
+[pull]
+	rebase = false
+[credential "https://github.com"]
+	helper =
+	helper = !~/.local/share/mise/shims/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !~/.local/share/mise/shims/gh auth git-credential
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+	insteadOf = ssh://git@github.com/

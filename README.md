@@ -4,10 +4,14 @@ My dotfiles managed by mise. Currently only works for Apple Silicon macOS.
 
 ## Installation
 
-Step 1: Install [homebrew](https://brew.sh/), then run the commands it prints under "Next steps".
+Step 1: Install [homebrew](https://brew.sh/) and add it to `~/.zprofile`.
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# From the "Next steps" printed by the Homebrew installer
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 Step 2: Sign in to the App Store, so the Brewfile can install App Store apps.
@@ -19,16 +23,9 @@ curl -fsSL https://mise.run | sh
 ~/.local/bin/mise bootstrap --adopt billjh/dotfiles
 ```
 
-## Runbook
+## Update
 
-Preview what a bootstrap would change, or show the state of everything it manages.
-
-```bash
-mise bootstrap --dry-run
-mise bootstrap status
-```
-
-Pull and apply config changes. This also upgrades outdated Brewfile packages.
+Pull and apply config changes. This also upgrades outdated Brewfile packages and mise tools.
 
 ```bash
 mup

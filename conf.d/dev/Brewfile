@@ -1,6 +1,0 @@
-brew "eza"
-brew "gh"
-brew "git"
-brew "watch"
-
-cask "visual-studio-code"

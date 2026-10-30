@@ -1,14 +1,26 @@
 [bootstrap.hooks]
-pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+# Tool postinstalls write zsh completions here
+pre-tools = 'mkdir -p ~/.local/share/zsh/site-functions'
+# mise isn't in [tools], so it has no postinstall. mise_bin works before ~/.local/bin is on PATH.
+post-tools = '"{{ mise_bin }}" completion zsh > ~/.local/share/zsh/site-functions/_mise'
 
 [bootstrap.user]
-login_shell = "/opt/homebrew/bin/zsh"
+login_shell = "/bin/zsh"
 
 [bootstrap.mise_shell_activate]
 zsh = true
 
+[bootstrap.repos]
+"~/.local/share/zsh/plugins/zsh-autosuggestions" = { url = "https://github.com/zsh-users/zsh-autosuggestions.git" }
+"~/.local/share/zsh/plugins/zsh-syntax-highlighting" = { url = "https://github.com/zsh-users/zsh-syntax-highlighting.git" }
+"~/.local/share/zsh/plugins/zsh-history-substring-search" = { url = "https://github.com/zsh-users/zsh-history-substring-search.git" }
+
+[tools]
+eza = "latest"
+starship = "latest"
+
 [shell_alias]
-mup = "mise bootstrap --adopt billjh/dotfiles --update"
+mup = "mise bootstrap --adopt billjh/dotfiles --update --upgrade"
 ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
 ll = "ls --long"
 ".." = "cd .."

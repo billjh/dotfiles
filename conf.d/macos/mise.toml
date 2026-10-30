@@ -1,3 +1,7 @@
+# Brewfiles, not `brew:` entries: casks mise installs are invisible to `brew upgrade`.
+[bootstrap.hooks]
+pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+
 [bootstrap.macos.dock]
 autohide = false       # Keep the Dock visible
 orientation = "bottom" # Dock position: bottom, left or right

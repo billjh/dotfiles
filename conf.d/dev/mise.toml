@@ -1,2 +1,0 @@
-[bootstrap.hooks]
-pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
