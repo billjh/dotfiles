@@ -1,8 +1,95 @@
-min_version = "2026.10.9"
-
 [settings]
-idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"] # Set only here; a list in another config replaces it
+idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"]
 self_update.auto = true
+self_update.check_duration = "24h"
 
 [tools]
-ruby = "4"
+eza = "latest"
+gh = "latest"
+go = "latest"
+golangci-lint = "latest"
+goreleaser = "latest"
+mas = "latest"
+ruby = "latest"
+starship = "latest"
+"go:github.com/cweill/gotests/gotests" = "latest" # go: entries are VS Code Go extension tools, https://github.com/golang/vscode-go/wiki/tools
+"go:github.com/fatih/gomodifytags" = "latest"
+"go:github.com/go-delve/delve/cmd/dlv" = "latest"
+"go:github.com/haya14busa/goplay/cmd/goplay" = "latest"
+"go:github.com/josharian/impl" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+
+[shell_alias]
+mup = "mise bootstrap --adopt billjh/dotfiles --update --upgrade"
+ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
+ll = "ls --long"
+".." = "cd .."
+
+[dotfiles]
+"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
+"~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "symlink" }
+"~/.gitconfig" = { source = ".gitconfig", mode = "symlink" }
+"~/.zprofile/homebrew-prefix" = { line = 'export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"', position = "prepend" } # brew shellenv without brew; .zprofile runs after path_helper, prepend keeps mise ahead
+"~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
+"~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }
+
+[bootstrap.hooks]
+pre-packages = '"{{ mise_bin }}" install mas' # Packages apply before tools, and mas: entries need mas
+
+[bootstrap.user]
+login_shell = "/bin/zsh"
+
+[bootstrap.mise_shell_activate]
+zsh = true
+
+[bootstrap.repos]
+"~/.local/share/zsh/plugins/zsh-autosuggestions" = { url = "https://github.com/zsh-users/zsh-autosuggestions.git" }
+"~/.local/share/zsh/plugins/zsh-history-substring-search" = { url = "https://github.com/zsh-users/zsh-history-substring-search.git" }
+"~/.local/share/zsh/plugins/zsh-syntax-highlighting" = { url = "https://github.com/zsh-users/zsh-syntax-highlighting.git" }
+
+[bootstrap.packages]
+"brew:watch" = "latest"
+"brew-cask:1password" = "latest"
+"brew-cask:font-lilex-nerd-font" = "latest"
+"brew-cask:monitorcontrol" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:wezterm" = "latest"
+"mas:1136220934" = "latest" # Infuse
+"mas:1569813296" = "latest" # 1Password for Safari
+"mas:6746388723" = "latest" # wBlock
+
+[bootstrap.macos.dock]
+autohide = false
+orientation = "bottom" # bottom, left or right
+tilesize = 50
+magnification = true
+largesize = 80 # Magnified icon size
+show_recents = false
+mru_spaces = false # Don't reorder Spaces by recent use
+
+[bootstrap.macos.finder]
+show_all_files = true
+show_pathbar = true
+show_status_bar = true
+show_extensions_warning = false
+preferred_view_style = "list" # icon, list, column or gallery
+
+[bootstrap.macos.keyboard]
+key_repeat = 1          # Lower is faster
+initial_key_repeat = 10 # Lower is shorter
+press_and_hold = false  # Repeat held keys instead of offering accents
+automatic_capitalization = false
+automatic_spelling_correction = false
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+three_finger_drag = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+NewWindowTarget = "PfHm" # Home folder
+
+[bootstrap.macos.defaults."com.apple.menuextra.clock"]
+ShowSeconds = true
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleShowAllExtensions = true

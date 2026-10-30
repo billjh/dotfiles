@@ -1,5 +1,0 @@
-[tools]
-gh = { version = "latest", postinstall = 'gh completion -s zsh > ~/.local/share/zsh/site-functions/_gh' }
-
-[dotfiles]
-"~/.gitconfig" = { source = ".gitconfig", mode = "symlink" }
