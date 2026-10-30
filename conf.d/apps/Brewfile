@@ -1,0 +1,8 @@
+brew "mas"
+
+cask "1password"
+cask "monitorcontrol"
+
+mas "1Password for Safari", id: 1569813296
+mas "Infuse", id: 1136220934
+mas "wBlock", id: 6746388723

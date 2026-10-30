@@ -1,0 +1,5 @@
+[bootstrap.hooks]
+pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+
+[env]
+_.path = ["~/go/bin"]

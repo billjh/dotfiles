@@ -1,0 +1,19 @@
+[bootstrap.hooks]
+pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+
+[bootstrap.user]
+login_shell = "/opt/homebrew/bin/zsh"
+
+[bootstrap.mise_shell_activate]
+zsh = true
+
+[shell_alias]
+mup = "mise bootstrap --adopt billjh/dotfiles --update"
+ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
+ll = "ls --long"
+".." = "cd .."
+
+[dotfiles]
+"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
+"~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }
+"~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }

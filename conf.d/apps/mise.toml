@@ -1,0 +1,3 @@
+# Brewfiles, not `brew:` entries: casks mise installs are invisible to `brew upgrade`.
+[bootstrap.hooks]
+pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'

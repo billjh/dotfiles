@@ -1,25 +1,3 @@
-# No [tools]: global tools come from Homebrew; mise installs only the versions projects pin.
-# Keep this list here only; a list in another config replaces it.
-[settings]
-idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"]
-self_update.auto = true
-
-[tools]
-ruby = "4"
-
-[env]
-_.path = ["~/go/bin"]
-
-# Brewfile, not `brew:` entries: casks mise installs are invisible to `brew upgrade`.
-[bootstrap.hooks]
-pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
-
-[bootstrap.user]
-login_shell = "/opt/homebrew/bin/zsh"
-
-[bootstrap.mise_shell_activate]
-zsh = true
-
 [bootstrap.macos.dock]
 autohide = false       # Keep the Dock visible
 orientation = "bottom" # Dock position: bottom, left or right
@@ -55,15 +33,3 @@ ShowSeconds = true # Show seconds in the menu bar clock
 
 [bootstrap.macos.defaults.NSGlobalDomain]
 AppleShowAllExtensions = true # Show all file extensions in finder
-
-[shell_alias]
-mup = "mise bootstrap --adopt billjh/dotfiles --update"
-ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
-ll = "ls --long"
-".." = "cd .."
-
-[dotfiles]
-"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
-"~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "symlink" }
-"~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }
-"~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
