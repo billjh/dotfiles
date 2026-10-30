@@ -37,9 +37,12 @@ login_shell = "/bin/zsh"
 zsh = true
 
 [bootstrap.repos]
+# -----------
+# zsh plugins
 "~/.local/share/zsh/plugins/zsh-autosuggestions" = { url = "https://github.com/zsh-users/zsh-autosuggestions.git", ref = "master" }
 "~/.local/share/zsh/plugins/zsh-history-substring-search" = { url = "https://github.com/zsh-users/zsh-history-substring-search.git", ref = "master" }
 "~/.local/share/zsh/plugins/zsh-syntax-highlighting" = { url = "https://github.com/zsh-users/zsh-syntax-highlighting.git", ref = "master" }
+# -----------
 
 [bootstrap.packages]
 "brew:watch" = "latest"
@@ -52,14 +55,19 @@ zsh = true
 "mas:1569813296" = "latest" # 1Password for Safari
 "mas:6746388723" = "latest" # wBlock
 
+# ------------------------------------------------------
+# [bootstrap.macos.*] configure macOS defaults
+# see https://mise.jdx.dev/bootstrap/macos-defaults.html
+
 [bootstrap.macos.dock]
 autohide = false
 orientation = "bottom" # bottom, left or right
 tilesize = 50
 magnification = true
-largesize = 80 # Magnified icon size
+largesize = 80
 show_recents = false
-mru_spaces = false # Don't reorder Spaces by recent use
+mru_spaces = false
+# apps = [] # TODO: add once all apps are managed by mise
 
 [bootstrap.macos.finder]
 show_all_files = true
@@ -69,9 +77,9 @@ show_extensions_warning = false
 preferred_view_style = "list" # icon, list, column or gallery
 
 [bootstrap.macos.keyboard]
-key_repeat = 1          # Lower is faster
-initial_key_repeat = 10 # Lower is shorter
-press_and_hold = false  # Repeat held keys instead of offering accents
+key_repeat = 1
+initial_key_repeat = 15
+press_and_hold = false
 automatic_capitalization = false
 automatic_spelling_correction = false
 
@@ -87,3 +95,4 @@ ShowSeconds = true
 
 [bootstrap.macos.defaults.NSGlobalDomain]
 AppleShowAllExtensions = true
+# ------------------------------------------------------
