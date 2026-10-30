@@ -19,10 +19,6 @@ curl -fsSL https://mise.run | sh
 ~/.local/bin/mise bootstrap --adopt billjh/dotfiles
 ```
 
-## Machine-specific config
-
-Every module in `conf.d/` other than `base` is git-ignored. To add setup for one machine only, create `conf.d/<name>/mise.toml` with its own `Brewfile` and dotfile sources next to it.
-
 ## Runbook
 
 Preview what a bootstrap would change, or show the state of everything it manages.
