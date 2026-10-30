@@ -1,8 +1,6 @@
 brew "eza"
 brew "gh"
 brew "git"
-brew "go"
-brew "golangci-lint"
 brew "watch"
 
 cask "visual-studio-code"
