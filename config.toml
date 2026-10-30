@@ -12,12 +12,6 @@ goreleaser = "latest"
 mas = "latest"
 ruby = "latest"
 starship = "latest"
-"go:github.com/cweill/gotests/gotests" = "latest" # go: entries are VS Code Go extension tools, https://github.com/golang/vscode-go/wiki/tools
-"go:github.com/fatih/gomodifytags" = "latest"
-"go:github.com/go-delve/delve/cmd/dlv" = "latest"
-"go:github.com/haya14busa/goplay/cmd/goplay" = "latest"
-"go:github.com/josharian/impl" = "latest"
-"go:golang.org/x/tools/gopls" = "latest"
 
 [shell_alias]
 mup = "mise bootstrap --adopt billjh/dotfiles --update --upgrade"
