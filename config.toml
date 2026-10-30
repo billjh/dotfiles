@@ -14,15 +14,15 @@ ruby = "latest"
 starship = "latest"
 
 [shell_alias]
-mup = "mise bootstrap --adopt billjh/dotfiles --update --upgrade"
+mup = "(YES=packages,repos; mise bootstrap --adopt billjh/dotfiles --update --upgrade --only $YES --yes && mise bootstrap --upgrade --skip $YES)" # Package upgrades and repo updates prompt on every run, even with nothing to change
 ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
 ll = "ls --long"
 ".." = "cd .."
 
 [dotfiles]
-"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
-"~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "symlink" }
-"~/.gitconfig" = { source = ".gitconfig", mode = "symlink" }
+"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "copy" }
+"~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "copy" }
+"~/.gitconfig" = { source = ".gitconfig", mode = "copy" }
 "~/.zprofile/homebrew-prefix" = { line = 'export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"', position = "prepend" } # brew shellenv without brew; .zprofile runs after path_helper, prepend keeps mise ahead
 "~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
 "~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }

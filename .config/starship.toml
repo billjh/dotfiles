@@ -15,6 +15,12 @@ diverged = "<>"
 renamed = "r"
 deleted = "x"
 
+[custom.dotfiles]
+description = "Live dotfiles differ from ~/.config/mise; review with mise dot diff"
+when = '[ -n "$(mise -C ~ dot diff 2>/dev/null)" ]'
+format = "[dotfiles differ]($style) "
+style = "bold yellow"
+
 [aws]
 symbol = "aws "
 
