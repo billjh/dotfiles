@@ -31,5 +31,5 @@ mise bootstrap status
 Pull and apply config changes. This also upgrades outdated Brewfile packages.
 
 ```bash
-miseup
+mup
 ```

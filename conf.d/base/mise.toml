@@ -57,7 +57,7 @@ ShowSeconds = true # Show seconds in the menu bar clock
 AppleShowAllExtensions = true # Show all file extensions in finder
 
 [shell_alias]
-miseup = "mise bootstrap --adopt billjh/dotfiles --update"
+mup = "mise bootstrap --adopt billjh/dotfiles --update"
 ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
 ll = "ls --long"
 ".." = "cd .."
