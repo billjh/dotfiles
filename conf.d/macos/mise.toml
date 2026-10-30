@@ -1,39 +1,50 @@
-# Brewfiles, not `brew:` entries: casks mise installs are invisible to `brew upgrade`.
+[tools]
+mas = "latest"
+
 [bootstrap.hooks]
-pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+pre-packages = '"{{ mise_bin }}" install mas' # Packages apply before tools, and mas: entries need mas
+
+[bootstrap.packages]
+"brew:watch" = "latest"
+"brew-cask:1password" = "latest"
+"brew-cask:monitorcontrol" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"mas:1569813296" = "latest" # 1Password for Safari
+"mas:1136220934" = "latest" # Infuse
+"mas:6746388723" = "latest" # wBlock
 
 [bootstrap.macos.dock]
-autohide = false       # Keep the Dock visible
-orientation = "bottom" # Dock position: bottom, left or right
-tilesize = 50          # Icon size
-magnification = true   # Enlarge icons under the pointer
-largesize = 80         # Enlarged icon size
-show_recents = false   # Hide recent apps in the Dock
-mru_spaces = false     # Don't rearrange Spaces by most recent use
+autohide = false
+orientation = "bottom" # bottom, left or right
+tilesize = 50
+magnification = true
+largesize = 80 # Magnified icon size
+show_recents = false
+mru_spaces = false # Don't reorder Spaces by recent use
 
 [bootstrap.macos.finder]
-show_all_files = true           # Show hidden files
-show_pathbar = true             # Show the path bar
-show_status_bar = true          # Show the status bar
-show_extensions_warning = false # Don't warn before changing a file extension
-preferred_view_style = "list"   # icon, list, column or gallery
+show_all_files = true
+show_pathbar = true
+show_status_bar = true
+show_extensions_warning = false
+preferred_view_style = "list" # icon, list, column or gallery
 
 [bootstrap.macos.keyboard]
-key_repeat = 1                        # Interval between repeated keys; lower is faster
-initial_key_repeat = 10               # Delay before a held key repeats; lower is shorter
-press_and_hold = false                # Repeat a held key instead of offering accents
-automatic_capitalization = false      # Don't capitalize words automatically
-automatic_spelling_correction = false # Don't correct spelling automatically
+key_repeat = 1          # Lower is faster
+initial_key_repeat = 10 # Lower is shorter
+press_and_hold = false  # Repeat held keys instead of offering accents
+automatic_capitalization = false
+automatic_spelling_correction = false
 
 [bootstrap.macos.trackpad]
-tap_to_click = true      # Tap to click
-three_finger_drag = true # Drag with three fingers
+tap_to_click = true
+three_finger_drag = true
 
 [bootstrap.macos.defaults."com.apple.finder"]
-NewWindowTarget = "PfHm" # New Finder windows open the home folder
+NewWindowTarget = "PfHm" # Home folder
 
 [bootstrap.macos.defaults."com.apple.menuextra.clock"]
-ShowSeconds = true # Show seconds in the menu bar clock
+ShowSeconds = true
 
 [bootstrap.macos.defaults.NSGlobalDomain]
-AppleShowAllExtensions = true # Show all file extensions in finder
+AppleShowAllExtensions = true

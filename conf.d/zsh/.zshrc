@@ -1,5 +1,5 @@
 {%- raw -%}
-fpath=(~/.local/share/zsh/site-functions $fpath)
+fpath=(~/.local/share/zsh/site-functions /opt/homebrew/share/zsh/site-functions $fpath)
 
 autoload -Uz compinit && compinit
 

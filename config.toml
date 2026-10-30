@@ -1,9 +1,7 @@
 min_version = "2026.10.9"
 
-# Global tools come from Homebrew unless a [tools] table pins them; mise otherwise installs only the versions projects pin.
-# Keep this list here only; a list in another config replaces it.
 [settings]
-idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"]
+idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"] # Set only here; a list in another config replaces it
 self_update.auto = true
 
 [tools]

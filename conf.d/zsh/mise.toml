@@ -1,8 +1,6 @@
 [bootstrap.hooks]
-# Tool postinstalls write zsh completions here
-pre-tools = 'mkdir -p ~/.local/share/zsh/site-functions'
-# mise isn't in [tools], so it has no postinstall. mise_bin works before ~/.local/bin is on PATH.
-post-tools = '"{{ mise_bin }}" completion zsh > ~/.local/share/zsh/site-functions/_mise'
+pre-tools = 'mkdir -p ~/.local/share/zsh/site-functions' # Tool postinstalls write completions here
+post-tools = '"{{ mise_bin }}" completion zsh > ~/.local/share/zsh/site-functions/_mise' # mise has no postinstall; mise_bin works before PATH has it
 
 [bootstrap.user]
 login_shell = "/bin/zsh"
@@ -29,3 +27,4 @@ ll = "ls --long"
 "~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
 "~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }
 "~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
+"~/.zprofile/homebrew-prefix" = { line = 'export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"', position = "prepend" } # brew shellenv without brew; .zprofile runs after path_helper, prepend keeps mise ahead

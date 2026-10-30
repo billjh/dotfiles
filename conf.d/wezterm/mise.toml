@@ -1,5 +1,6 @@
-[bootstrap.hooks]
-pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+[bootstrap.packages]
+"brew-cask:font-lilex-nerd-font" = "latest"
+"brew-cask:wezterm" = "latest"
 
 [dotfiles]
 "~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "symlink" }
