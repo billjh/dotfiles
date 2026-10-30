@@ -71,7 +71,6 @@ preferred_view_style = "list" # icon, list, column or gallery
 [bootstrap.macos.keyboard]
 key_repeat = 1          # Lower is faster
 initial_key_repeat = 10 # Lower is shorter
-press_and_hold = false  # Repeat held keys instead of offering accents
 automatic_capitalization = false
 automatic_spelling_correction = false
 
