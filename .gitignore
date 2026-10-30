@@ -1,0 +1,5 @@
+/*.local.toml
+# Modules other than base are machine-specific and stay local.
+/conf.d/*
+!/conf.d/base/
+.DS_Store

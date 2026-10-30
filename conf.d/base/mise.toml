@@ -1,0 +1,69 @@
+# No [tools]: global tools come from Homebrew; mise installs only the versions projects pin.
+# Keep this list here only; a list in another config replaces it.
+[settings]
+idiomatic_version_file_enable_tools = ["node", "ruby", "python", "java", "terraform"]
+self_update.auto = true
+
+[tools]
+ruby = "4"
+
+[env]
+_.path = ["~/go/bin"]
+
+# Brewfile, not `brew:` entries: casks mise installs are invisible to `brew upgrade`.
+[bootstrap.hooks]
+pre-packages = 'brew bundle --file="{{ config_root }}/Brewfile"'
+
+[bootstrap.user]
+login_shell = "/opt/homebrew/bin/zsh"
+
+[bootstrap.mise_shell_activate]
+zsh = true
+
+[bootstrap.macos.dock]
+autohide = false       # Keep the Dock visible
+orientation = "bottom" # Dock position: bottom, left or right
+tilesize = 50          # Icon size
+magnification = true   # Enlarge icons under the pointer
+largesize = 80         # Enlarged icon size
+show_recents = false   # Hide recent apps in the Dock
+mru_spaces = false     # Don't rearrange Spaces by most recent use
+
+[bootstrap.macos.finder]
+show_all_files = true           # Show hidden files
+show_pathbar = true             # Show the path bar
+show_status_bar = true          # Show the status bar
+show_extensions_warning = false # Don't warn before changing a file extension
+preferred_view_style = "list"   # icon, list, column or gallery
+
+[bootstrap.macos.keyboard]
+key_repeat = 1                        # Interval between repeated keys; lower is faster
+initial_key_repeat = 10               # Delay before a held key repeats; lower is shorter
+press_and_hold = false                # Repeat a held key instead of offering accents
+automatic_capitalization = false      # Don't capitalize words automatically
+automatic_spelling_correction = false # Don't correct spelling automatically
+
+[bootstrap.macos.trackpad]
+tap_to_click = true      # Tap to click
+three_finger_drag = true # Drag with three fingers
+
+[bootstrap.macos.defaults."com.apple.finder"]
+NewWindowTarget = "PfHm" # New Finder windows open the home folder
+
+[bootstrap.macos.defaults."com.apple.menuextra.clock"]
+ShowSeconds = true # Show seconds in the menu bar clock
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleShowAllExtensions = true # Show all file extensions in finder
+
+[shell_alias]
+miseup = "mise bootstrap --adopt billjh/dotfiles --update"
+ls = "eza --icons --hyperlink --octal-permissions --git-repos --all"
+ll = "ls --long"
+".." = "cd .."
+
+[dotfiles]
+"~/.config/starship.toml" = { source = ".config/starship.toml", mode = "symlink" }
+"~/.config/wezterm/wezterm.lua" = { source = ".config/wezterm/wezterm.lua", mode = "symlink" }
+"~/.zshrc/interactive" = { source = ".zshrc", template = "tera" }
+"~/.zshenv/local-bin" = { line = 'export PATH="$HOME/.local/bin:$PATH"' }
